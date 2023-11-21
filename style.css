@@ -1,14 +1,25 @@
 *{
 
     box-sizing: border-box;
-    margin: 0%;
+    margin: 0;
     padding: 0;
 }
 
 
 body{
-
     background-color: #222;
     color: white;
-    font-family: sans-serif;
+/*     font-family: sans-serif; */
+    padding: 1rem,
+}
+
+.deleted{
+
+    text-decoration: line-through;
+    text-decoration-color:green;
+}
+
+.error {
+    font-size: 0.75em;
+    color: red;
 }

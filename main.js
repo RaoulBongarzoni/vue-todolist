@@ -5,6 +5,8 @@ createApp({
     data(){
 
         return{
+           
+            inputError:false,
             tasks: [
                 {
                     text: "task 1 test",
@@ -16,7 +18,7 @@ createApp({
                 },
                 {
                     text: "task 1 test",
-                    done: true
+                    done: false
                 },
                 {
                     text: "task 1 test",
@@ -29,8 +31,36 @@ createApp({
 
     methods:{
         //cancello la task
+        deleteTask(i){
+            this.tasks.splice(i, 1)
+
+
+
+        },
         //aggiungo una task
-        //task completa
+        addTask(){
+
+            if(this.userInput.length<3){
+                this.inputError = true;
+            }else{
+
+                this.tasks.unshift({
+                    text: this.userInput,
+                    done: false
+                })
+                
+                this.userInput="",
+                this.inputError=false
+                
+                
+            }
+            //task completa
+        },
+        taskDone(i){
+            this.tasks[i].done = (!this.tasks[i].done)
+
+
+        }
 
 
     },

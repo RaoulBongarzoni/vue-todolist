@@ -19,21 +19,26 @@
         <h1>toDo</h1>
 
         <!-- input testuale -->
-        <input type="text">
+        <h2 v-if="inputError" class="error">inserisci almeno 3 caratteri</h2>
+        <input v-model="userInput" type="text">
         <!-- pulsante di invio -->
-        <buttons>aggiungi</button>
+        <button @click="addTask">aggiungi</button>
 
 
         <!-- lista elementi array -->
         <ul>
             <!-- task in base a .text -->
-            <li>test</li>
+            <li v-for="(task , i) in tasks" :class="{deleted: task.done}">
+                <i @click="taskDone(i)" class="fa-regular" :class="task.done ? 'fas fa-check' : 'fas fa-x'"></i>
+                {{ task.text }}
+                <!-- cancello task -->
+                <button @click="deleteTask(i)">x</button>
+            </li>
 
         </ul>
         
 
 
-        <!-- cancello task -->
 
 
 
